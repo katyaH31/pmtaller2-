@@ -14,22 +14,27 @@ import com.pdmtaller2.katyaherrera00188119.ui.components.VisualRestaurantCard
 import com.pdmtaller2.katyaherrera00188119.ui.navigation.MenuScreenNavigation
 import com.pdmtaller2.katyaherrera00188119.ui.screens.Restaurants.RestaurantListViewModel
 
-
-
 @Composable
 fun SearchScreen(navController: NavHostController) {
     val viewModel: RestaurantListViewModel = viewModel()
     val allRestaurants by viewModel.restaurants.collectAsState()
     var query by remember { mutableStateOf("") }
 
+
+    LaunchedEffect(Unit) {
+        viewModel.loadRestaurants()
+    }
+
     val filteredRestaurants = allRestaurants.filter {
         it.name.contains(query, ignoreCase = true)
     }
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)) {
-
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        // búsqueda
         OutlinedTextField(
             value = query,
             onValueChange = { query = it },
@@ -40,7 +45,10 @@ fun SearchScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         if (filteredRestaurants.isEmpty()) {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
                 Text("No se encontraron restaurantes")
             }
         } else {
@@ -49,7 +57,7 @@ fun SearchScreen(navController: NavHostController) {
                     VisualRestaurantCard(
                         restaurant = restaurant,
                         onClick = {
-                            navController.navigate(MenuScreenNavigation(it))
+                            navController.navigate(MenuScreenNavigation(restaurant.id))
                         }
                     )
                 }

@@ -67,6 +67,27 @@ val restaurants = listOf(
                 imageUrl = "https://www.chinawok.com.sv/static/media/images/products/webp/CMB_1051_SM_17-03-2023-14-13.webp"
             )
         )
+    ),
+    Restaurant(
+        id = 4,
+    name = "Don Pollo",
+    description = "Pollo rico, caliente y a tu alcance",
+    imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAtyxWbgiwniCjb2utwq7g2hZ2fCZcuL1XCA&s",
+    categories = listOf("Nada vegetariano", "Comida rapida", "Fritura"),
+    menu = listOf(
+        Dish(
+            id = 5,
+            name = "Pollito Loco",
+            description = "Doble pollo, doble vegetal, doble sabor.",
+            imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZGTaARc_jKWg3-88qlcVvf1SvuFIcPqvtXg&s"
+        ),
+        Dish(
+            id = 6,
+            name = "Plato personal",
+            description = "Una opción deliciosa y saludable.",
+            imageUrl = "https://comelongo.com/wp-content/uploads/2021/01/137496884_3479706068821445_892071447319784994_o-580x408.png"
+        )
     )
+)
 
 )

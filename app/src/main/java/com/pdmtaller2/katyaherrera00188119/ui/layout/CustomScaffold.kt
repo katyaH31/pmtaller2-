@@ -63,11 +63,7 @@ fun CustomScaffold() {
 
     Scaffold(
         topBar = {
-            CustomTopBar(
-                title = title,
-                showBackButton = false,
-                onBackClick = { navController.popBackStack() }
-            )
+
         },
         bottomBar = {
             CustomBottomBar(

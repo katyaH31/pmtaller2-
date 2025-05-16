@@ -1,4 +1,4 @@
-// MainActivity.kt
+
 package com.pdmtaller2.katyaherrera00188119
 
 import android.os.Bundle
